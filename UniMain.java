@@ -1,51 +1,72 @@
+import model.Anrede;
+import model.NebenberuflLehrbeauftragteR;
+import model.Prof;
+import model.StudentIn;
+
 public class UniMain {
     public static void main(String[] args) {
-        Student[] students = {
-                new Student("Alice", "Musterfrau", "s0555555"),
-                new Student("Bob", "Mustermann", "s0555556"),
-                new Student("Max", "Mustermann", "s0555557"),
+        vorlesungOo1();
+        System.out.println("----");
+        vorlesungOo2();
+    }
+
+    private static void vorlesungOo1() {
+        StudentIn[] students = {
+                new StudentIn("Alice", "Musterfrau", "s0555555"),
+                new StudentIn("Bob", "Mustermann", "s0555556"),
+                new StudentIn("Max", "Mustermann", "s0555557"),
         };
 
         // Print out each student:
         for (int i = 0; i < students.length; i++) {
-            Student currentStudent = students[i];
-            currentStudent.printStudent();
+            StudentIn currentStudent = students[i];
+            currentStudent.printInfo();
         }
 
         // ... Or using an enhanced for-loop
-        for (Student currentStudent : students) {
-            currentStudent.printStudent();
+        for (StudentIn currentStudent : students) {
+            currentStudent.printInfo();
         }
 
         String name1 = "Bob";
         String name2 = "ABC";
-        Student s1 = findStudentByFirstName(students, name1);
-        Student s2 = findStudentByFirstName(students, name2);
+        StudentIn s1 = findStudentByFirstName(students, name1);
+        StudentIn s2 = findStudentByFirstName(students, name2);
 
         if (s1 != null) {
-            s1.printStudent();
+            s1.printInfo();
         } else {
             System.out.println("No student with name " + name1 + " found");
         }
 
         if (s2 != null) {
-            s2.printStudent();
+            s2.printInfo();
         } else {
             System.out.println("No student with name " + name2 + " found");
         }
     }
 
-    private static Student findStudentByFirstName(Student[] students, String firstNameToFind) {
-        Student student = null;
+    private static StudentIn findStudentByFirstName(StudentIn[] students, String firstNameToFind) {
+        StudentIn student = null;
 
         // for (int i = 0; i < students.length && student == null; i++) {
         for (int i = 0; i < students.length; i++) {
-            if (students[i].getFirstName().equals(firstNameToFind)) {
+            if (students[i].getAnrede().getVorname().equals(firstNameToFind)) {
                 student = students[i];
                 break;
             }
         }
 
         return student;
+    }
+
+    private static void vorlesungOo2(){
+        Prof profMustermann = new Prof(new Anrede("Max", "Mustermann"));
+        NebenberuflLehrbeauftragteR nils = new NebenberuflLehrbeauftragteR(new Anrede("Nils", "Nebenberuflich"));
+        StudentIn anneliese = new StudentIn("Anneliese", "Musterfrau", "123456", 2);
+
+        profMustermann.printInfo();
+        nils.printInfo();
+        anneliese.printInfo();
     }
 }
