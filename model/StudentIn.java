@@ -18,11 +18,18 @@ public class StudentIn extends Person {
         this.semester = semester;
     }
 
+    public StudentIn(String firstName, String lastName, String matrikelNr, String adresse) {
+        super(new Anrede(firstName, lastName));
+        this.matrikelNr = matrikelNr;
+        this.adresse = adresse;
+    }
+
     public boolean learn() {
         System.out.println(getAnrede().getVorname() + " " + getAnrede().getNachname() + ": Lernen ...");
         return false; // Boolean "hat tatsächlich gelernt" (Anregung aus dem Kurs)
     }
 
+    @Override
     public void printInfo() {
         System.out.println(
                 "StudentIn: " + getAnrede().getVorname() + " " + getAnrede().getNachname() + " (" + matrikelNr + ")");

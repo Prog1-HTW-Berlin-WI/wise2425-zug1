@@ -8,6 +8,8 @@ public class UniMain {
         vorlesungOo1();
         System.out.println("----");
         vorlesungOo2();
+        System.out.println("----");
+        vorlesungOo3();
     }
 
     private static void vorlesungOo1() {
@@ -68,5 +70,51 @@ public class UniMain {
         profMustermann.printInfo();
         nils.printInfo();
         anneliese.printInfo();
+    }
+
+    private static void vorlesungOo3() {
+
+        final StudentIn[] studierende = {
+            new StudentIn("Alice", "A.", "1"),
+            new StudentIn("Bob", "B.", "2"),
+            new StudentIn("Claus", "C.", "3"),
+        };
+
+        printCourseData("Prog1", studierende);
+        printCourseData("GSE", 5);
+        printCourseData( studierende, "Prog1"); // Gaunertrick
+        long kursgroesse = 123;
+        printCourseData("GSE", kursgroesse); // Gaunertrick
+    }
+
+    private static void printCourseData(String kursName, StudentIn[] studierende){
+        System.out.println("## Kurs \"" + kursName  + "\"");
+        for (int i = 0; i < studierende.length; i++) {
+            studierende[i].printInfo();
+        }
+    }
+
+    private static void printCourseData(String kursName, int ects) {
+        System.out.println("## Kurs \"" + kursName  + "\" (" + ects + " ECTS)");
+    }
+
+    private static void printCourseData(StudentIn[] studierende, String kursName) {
+        final int countedStudents = countStudents(studierende);
+        System.out.println("## Kurs \"" + kursName  + "\" ("+countedStudents+")");
+
+    }
+
+    private static void printCourseData(String kursName, long kursgroesse) {
+        System.out.println("Beispiel ...");
+    }
+
+    private static int countStudents(StudentIn[] studierende) {
+        int counter = studierende.length;
+        for(StudentIn studentIn : studierende) {
+            if (studentIn == null) {
+                counter--;
+            }
+        }
+        return counter;
     }
 }

@@ -8,6 +8,7 @@ public class Prof extends DozentIn {
         super(anrede);
     }
 
+    @Override
     public void printInfo () {
         System.out.println("Prof: " + getAnrede().getVorname() + " " + getAnrede().getNachname());
     }
