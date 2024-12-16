@@ -2,7 +2,7 @@ package model;
 
 public class StudentIn extends Person {
     private final String matrikelNr;
-    private double grade;
+    // private double grade;
     private String studiengang; // auch als Klasse modellierbar
     private String adresse; // auch als Klasse modellierbar
     private int semester;
@@ -39,13 +39,13 @@ public class StudentIn extends Person {
         return matrikelNr;
     }
 
-    public double getGrade() {
-        return grade;
-    }
+    // public double getGrade() {
+    //     return grade;
+    // }
 
-    public void setGrade(double grade) {
-        this.grade = grade;
-    }
+    // public void setGrade(double grade) {
+    //     this.grade = grade;
+    // }
 
     public String getStudiengang() {
         return studiengang;
