@@ -71,7 +71,6 @@ public class LsfMitArrays implements GradeBook {
                 if (grade != 0) {
                     counter++;
                     sum += grade;
-
                 }
             }
         }
@@ -99,14 +98,14 @@ public class LsfMitArrays implements GradeBook {
             System.out.println("## " + this.courses[i] + " ##");
             for (int j = 0; j < this.students.length; j++) {
                 final Anrede anrede = students[j].getAnrede();
-                System.out.print(" - " + anrede.getVorname() + " " + anrede.getNachname() + " (" + students[i].getMatrikelNr() + "): ");
+                System.out.print(" - " + anrede.getVorname() + " " + anrede.getNachname() + " (" + students[j].getMatrikelNr() + "): ");
                 System.out.println(grades[i][j] == 0 ? "-" : grades[i][j]);
             }
         }
     }
 
     private boolean isValidGrade(double grade) {
-        final double[] validGrades = {1, 1.3, 1.7, 2, 2.3, 2.7, 3, 3.3, 4, 5};
+        final double[] validGrades = {1, 1.3, 1.7, 2, 2.3, 2.7, 3, 3.3, 3.7, 4, 5};
         for (double valid : validGrades) {
             if (valid == grade) {
                 return true;

@@ -9,6 +9,8 @@ public class UniMain {
         vorlesungOo3();
         System.out.println("----");
         interfaceImplementationExample();
+        System.out.println("----");
+        vorlesungOo4();
     }
 
     private static void vorlesungOo1() {
@@ -151,5 +153,19 @@ public class UniMain {
         System.out.println("Durchschnitt (nur s001): " + lsf.calculateAverage(studierende[0]));
 
         lsf.printGradeBook();
+    }
+
+    private static void vorlesungOo4() {
+        Hochschule htw = new Hochschule("HTW");
+        htw.setAnzahlStudierende(14000);
+        htw.printUni();
+
+        htw.setAnzahlStudierende(14222);
+        htw.printUni();
+
+        System.out.println("---");
+        System.out.println("Beispiel für eine static-Methode: Math.floor");
+        final double d = 12.123123;
+        System.out.println(Math.floor(d));
     }
 }
