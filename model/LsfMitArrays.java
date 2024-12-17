@@ -98,7 +98,7 @@ public class LsfMitArrays implements GradeBook {
         for (int i = 0; i < this.courses.length; i++) {
             System.out.println("## " + this.courses[i] + " ##");
             for (int j = 0; j < this.students.length; j++) {
-                final Anrede anrede = students[i].getAnrede();
+                final Anrede anrede = students[j].getAnrede();
                 System.out.print(" - " + anrede.getVorname() + " " + anrede.getNachname() + " (" + students[i].getMatrikelNr() + "): ");
                 System.out.println(grades[i][j] == 0 ? "-" : grades[i][j]);
             }
